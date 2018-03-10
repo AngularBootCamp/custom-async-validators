@@ -14,7 +14,7 @@ export function slowAsyncValidator(): Observable<ValidationErrors> {
   return of(undefined).pipe(delay(1000));
 }
 
-const url = 'https:/https://api.angularbootcamp.com.zippopotam.us/us/';
+const url = 'https://api.zippopotam.us/us/';
 
 export function westernZipValidatorFactory(http: HttpClient) {
   return (control: FormControl): Observable<ValidationErrors> => {
