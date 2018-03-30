@@ -4,14 +4,14 @@
   <label>
     <span>Enter Input</span>
     <input type="text" formControlName="input">
-    {{inputFormGroup.get('input').errors | json}}
+    {{inputFormGroup.get('input')?.errors | json}}
   </label>
 
   <label>
     <span>Enter a Western ZIP code</span>
     <input type="text" formControlName="zip">
-    {{inputFormGroup.get('zip').errors | json}}
-    <span *ngIf="inputFormGroup.get('zip').pending">Pending Spinner Goes Here</span>
+    {{inputFormGroup.get('zip')?.errors | json}}
+    <span *ngIf="inputFormGroup.get('zip')?.pending">Pending Spinner Goes Here</span>
   </label>
 
   <div>
