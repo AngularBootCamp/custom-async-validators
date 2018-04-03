@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { FormControl, ValidationErrors } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable, of } from 'rxjs';
 import { catchError, delay, map, tap } from 'rxjs/operators';
 
 // Many TypeScript developers recommend always using undefined rather
-// than nul; however, the Angular documentation specifically states
-// that and a sink validator should return an observable of either
+// than null; however, the Angular documentation specifically states
+// that an async validator should return an observable of either
 // ValidationErrors or null.
 
 export function simpleAsyncValidator(): Observable<ValidationErrors | null> {
