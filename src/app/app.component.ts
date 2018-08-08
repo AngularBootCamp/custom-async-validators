@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { simpleAsyncValidator, westernZipValidatorFactory, slowAsyncValidator } from './asyncValidators';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { simpleAsyncValidator, slowAsyncValidator, westernZipValidatorFactory } from './asyncValidators';
 
 @Component({
   selector: 'app-root',
