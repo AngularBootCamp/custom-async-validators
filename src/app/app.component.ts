@@ -29,8 +29,8 @@ export class AppComponent {
     });
   }
 
-  onLogin(): void {
-    console.log('logged in', this.inputFormGroup.value);
+  onFormSubmit(): void {
+    console.log('submitted', this.inputFormGroup.value);
   }
 
   logTheForm(): void {

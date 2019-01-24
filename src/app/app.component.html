@@ -1,24 +1,31 @@
-<h4>Login Form</h4>
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Input Form</div>
 
-<form [formGroup]="inputFormGroup" (ngSubmit)="onLogin()" class="two-across">
-  <label>
-    <span>Enter Input</span>
-    <input type="text" formControlName="input">
-    {{inputFormGroup.get('input')?.errors | json}}
-  </label>
+    <form [formGroup]="inputFormGroup" (ngSubmit)="onFormSubmit()" class="two-across">
+      <label>
+        <span>Enter Input</span>
+        <input type="text" formControlName="input">
+        {{inputFormGroup.get('input')?.errors | json}}
+      </label>
 
-  <label>
-    <span>Enter a Western ZIP code</span>
-    <input type="text" formControlName="zip">
-    {{inputFormGroup.get('zip')?.errors | json}}
-    <span *ngIf="inputFormGroup.get('zip')?.pending">Pending Spinner Goes Here</span>
-  </label>
+      <label>
+        <span>Enter a Western ZIP code</span>
+        <input type="text" formControlName="zip">
+        {{inputFormGroup.get('zip')?.errors | json}}
+        <span *ngIf="inputFormGroup.get('zip')?.pending">
+          Pending Spinner Goes Here
+        </span>
+      </label>
 
-  <div>
-    <button [disabled]="!inputFormGroup.valid" class="btn"
-    [class.disabled]="!inputFormGroup.valid" >Login</button>
+      <div>
+        <button [disabled]="!inputFormGroup.valid" class="btn"
+            [class.disabled]="!inputFormGroup.valid" >Submit</button>
+      </div>
+    </form>
+
   </div>
-</form>
+</section>
 
 <section class="card">
   <div class="card-content">
