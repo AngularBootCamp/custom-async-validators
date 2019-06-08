@@ -21,15 +21,22 @@ export function slowAsyncValidator(): Observable<ValidationErrors | null> {
 const url = 'https://api.zippopotam.us/us/';
 
 export function westernZipValidatorFactory(http: HttpClient) {
-  return (control: FormControl): Observable<ValidationErrors | null> => {
+  return (
+    control: FormControl
+  ): Observable<ValidationErrors | null> => {
     return http.get<any>(url + control.value).pipe(
       tap(r => console.log(r)),
       map(data => data.places[0].longitude),
       map(l => l < -90),
-      tap(ok => ok ? console.log('It is west enough') : console.log('It is not west enough')),
-      map(ok => ok ? null : { westerliness: 'not enough' }),
+      tap(ok =>
+        ok
+          ? console.log('It is west enough')
+          : console.log('It is not west enough')
+      ),
+      map(ok => (ok ? null : { westerliness: 'not enough' })),
       catchError(_e => {
         return of({ westerliness: 'Unable to verify' });
-      }));
+      })
+    );
   };
 }

@@ -2,7 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { simpleAsyncValidator, slowAsyncValidator, westernZipValidatorFactory } from './asyncValidators';
+import {
+  simpleAsyncValidator,
+  slowAsyncValidator,
+  westernZipValidatorFactory
+} from './asyncValidators';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +25,7 @@ export class AppComponent {
           Validators.maxLength(5),
           Validators.required
         ],
-        [
-          slowAsyncValidator,
-          westernZipValidatorFactory(http)
-        ]
+        [slowAsyncValidator, westernZipValidatorFactory(http)]
       ]
     });
   }
