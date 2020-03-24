@@ -26,7 +26,7 @@ export function westernZipValidatorFactory(http: HttpClient) {
   ): Observable<ValidationErrors | null> => {
     return http.get<any>(url + control.value).pipe(
       tap(r => console.log(r)),
-      map(data => data.places[0].longitude),
+      map(locationDetails => locationDetails.places[0].longitude),
       map(l => l < -90),
       tap(ok =>
         ok
