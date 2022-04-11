@@ -23,8 +23,8 @@ const url = 'https://api.zippopotam.us/us/';
 export function westernZipValidatorFactory(http: HttpClient) {
   return (
     control: FormControl
-  ): Observable<ValidationErrors | null> => {
-    return http.get<any>(url + control.value).pipe(
+  ): Observable<ValidationErrors | null> =>
+    http.get<any>(url + control.value).pipe(
       tap(r => console.log(r)),
       map(locationDetails => locationDetails.places[0].longitude),
       map(l => l < -90),
@@ -34,9 +34,6 @@ export function westernZipValidatorFactory(http: HttpClient) {
           : console.log('It is not west enough')
       ),
       map(ok => (ok ? null : { westerliness: 'not enough' })),
-      catchError(_e => {
-        return of({ westerliness: 'Unable to verify' });
-      })
+      catchError(_e => of({ westerliness: 'Unable to verify' }))
     );
-  };
 }
