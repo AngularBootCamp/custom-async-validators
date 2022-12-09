@@ -1,6 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "defaultProject": "custom-async-validators",
   "newProjectRoot": "projects",
   "projects": {
     "custom-async-validators": {
