@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { FormControl, ValidationErrors } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { catchError, delay, map, tap } from 'rxjs/operators';
+import { Observable, of, catchError, delay, map, tap } from 'rxjs';
 
 // Many TypeScript developers recommend always using undefined rather
 // than null; however, the Angular documentation specifically states
