@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable, of, catchError, delay, map, tap } from 'rxjs';
 
 // Many TypeScript developers recommend always using undefined rather
@@ -21,7 +21,7 @@ const url = 'https://api.zippopotam.us/us/';
 
 export function westernZipValidatorFactory(http: HttpClient) {
   return (
-    control: FormControl
+    control: AbstractControl
   ): Observable<ValidationErrors | null> =>
     http.get<any>(url + control.value).pipe(
       tap(r => console.log(r)),

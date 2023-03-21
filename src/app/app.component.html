@@ -9,15 +9,21 @@
     >
       <label>
         <span>Enter Input</span>
-        <input type="text" formControlName="input" />
-        {{ inputFormGroup.get('input')?.errors | json }}
+        <input
+          type="text"
+          [formControl]="inputFormGroup.controls.input"
+        />
+        {{ inputFormGroup.controls.input.errors | json }}
       </label>
 
       <label>
         <span>Enter a Western ZIP code</span>
-        <input type="text" formControlName="zip" />
-        {{ inputFormGroup.get('zip')?.errors | json }}
-        <span *ngIf="inputFormGroup.get('zip')?.pending">
+        <input
+          type="text"
+          [formControl]="inputFormGroup.controls.zip"
+        />
+        {{ inputFormGroup.controls.zip.errors | json }}
+        <span *ngIf="inputFormGroup.controls.zip.pending">
           Pending Spinner Goes Here
         </span>
       </label>

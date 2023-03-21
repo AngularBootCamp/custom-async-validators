@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  NonNullableFormBuilder,
+  Validators
+} from '@angular/forms';
 
 import {
   simpleAsyncValidator,
@@ -13,9 +18,12 @@ import {
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  inputFormGroup: FormGroup;
+  inputFormGroup: FormGroup<{
+    input: FormControl<string>;
+    zip: FormControl<string>;
+  }>;
 
-  constructor(http: HttpClient, fb: FormBuilder) {
+  constructor(http: HttpClient, fb: NonNullableFormBuilder) {
     this.inputFormGroup = fb.group({
       input: ['', Validators.nullValidator, simpleAsyncValidator],
       zip: [
