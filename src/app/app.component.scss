@@ -1,4 +1,4 @@
-@use 'layout';
+@use '../../shared/styles/abc/_layout.scss';
 
 form {
   @include layout.two-across;

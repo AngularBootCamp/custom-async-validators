@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { Observable, of, catchError, delay, map, tap } from 'rxjs';
+import { catchError, delay, map, Observable, of, tap } from 'rxjs';
+
+interface LocationDetails {
+  places: { longitude: number }[];
+}
 
 // Many TypeScript developers recommend always using undefined rather
 // than null; however, the Angular documentation specifically states
@@ -23,7 +27,7 @@ export function westernZipValidatorFactory(http: HttpClient) {
   return (
     control: AbstractControl
   ): Observable<ValidationErrors | null> =>
-    http.get<any>(url + control.value).pipe(
+    http.get<LocationDetails>(url + control.value).pipe(
       tap(r => console.log(r)),
       map(locationDetails => locationDetails.places[0].longitude),
       map(l => l < -90),
