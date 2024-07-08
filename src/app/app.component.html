@@ -18,9 +18,9 @@
         [formControl]="inputFormGroup.controls.zip"
       />
       {{ inputFormGroup.controls.zip.errors | json }}
-      <span *ngIf="inputFormGroup.controls.zip.pending">
-        Pending Spinner Goes Here
-      </span>
+      @if (inputFormGroup.controls.zip.pending) {
+        <span>Pending Spinner Goes Here</span>
+      }
     </label>
 
     <div>
